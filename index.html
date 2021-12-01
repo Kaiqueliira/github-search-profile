@@ -17,18 +17,30 @@
     <section id="aplication">
         <header>
             <div class="titleHeader">
-                <h1>Buscar de Perfil GitHub</h1>
+                <h1>Busca de Perfil GitHub</h1>
             </div>
             <div id="searchInputArea">
                 <input type="text" name="inputSearch" id="inputSearch" placeholder="Procurar Perfil GitHub">
                 <button id="btnSearch">Buscar</button>
             </div>
         </header>
-        <section >
+        <section class="container">
+            <aside>
+                <img id="avatarImg" alt="Avatar"></img>
+                <div class="informationsProfile">
+                    <p>
+                        <span>Nome:</span> <span id="name"></span>
+
+                    </p>
+                    <p>
+                        <span>Quantidade de Repositorios:</span> <span id="html_url"></span>
+                    </p>
+                    <a id="link_perfil"></a>
+                </div>
+            </aside>
             <div>
-                <h1 id="name"></h1>
-                <h1 id="html_url"></h1>
-                <a id="link_perfil"></a>
+
+
             </div>
         </section>
     </section>

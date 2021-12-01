@@ -2,17 +2,21 @@ const api = "https://api.github.com/users/"
 
 const btnSearch = document.querySelector("#btnSearch");
 
-
 let nome = document.querySelector('#name')
 let htmlUrl = document.querySelector('#html_url')
 let linkPerfil = document.querySelector('#link_perfil')
+let avatarImg = document.querySelector('#avatarImg')
 
 btnSearch.onclick = async (e) => {
     e.preventDefault()
+    const containerArea = document.querySelector(".container")
     const inputValue = document.querySelector('#inputSearch');
     const data = await pegarDados(inputValue.value);
     renderItem(data);
     inputValue.value = "";
+    containerArea.style = "display: flex"
+
+
 }
 
 async function pegarDados(value) {
@@ -21,9 +25,10 @@ async function pegarDados(value) {
 }
 
 function renderItem(data) {
-    const { login, html_url } = data;
-    nome.innerHTML = login;
-    htmlUrl.innerHTML = html_url;
-    linkPerfil.innerHTML = "Perfil"
+    const { html_url, name, avatar_url, public_repos, created_at } = data;
+    nome.innerHTML = name;
+    htmlUrl.innerHTML = public_repos;
+    linkPerfil.innerHTML = "Acesso ao Perfil"
     linkPerfil.setAttribute("href", html_url)
+    avatarImg.setAttribute("src", avatar_url)
 }

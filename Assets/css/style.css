@@ -19,13 +19,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: display 0.8s;
 }
 
 #aplication {
     background: var(--background-main);
     border-radius: 1.2rem;
-    width: 80%;
-    height: 80%;
+    min-width: 80%;
+    min-height: 90%;
 }
 
 header {
@@ -71,11 +72,50 @@ header .titleHeader {
     background: var(--color-font-header);
     color: hsl(212, 77%, 83%);
     cursor: pointer;
-    transition: color 0.5s;
+    transition: filter 0.5s;
 }
 
 #searchInputArea button:hover {
-    background: hsl(230, 36%, 23%, 1.5);
-    color: hsl(0, 0%, 99%);
+    filter: opacity(0.8);
+}
+
+section .container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    display: none;
+
+}
+
+section .container div {
+    flex: 2;
+}
+
+aside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    background: #4554ac;
+    border-radius: 0.5rem;
+    margin: 0 1rem;
+    padding: 1rem;
+    color: hsl(212, 77%, 83%);
+}
+
+#avatarImg {
+    width: 50%;
+    border-radius: 50%;
+    margin: 1rem 0;
+}
+
+.informationsProfile {
+    width: 100%;
+}
+
+.informationsProfile p, .informationsProfile a {
+    margin: 0.5rem 0;
 
 }
