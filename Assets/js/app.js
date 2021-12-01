@@ -8,10 +8,11 @@ let htmlUrl = document.querySelector('#html_url')
 let linkPerfil = document.querySelector('#link_perfil')
 
 btnSearch.onclick = async (e) => {
-    const inputValue = document.querySelector('#inputSearch').value
     e.preventDefault()
-    const data = await pegarDados(inputValue);
+    const inputValue = document.querySelector('#inputSearch');
+    const data = await pegarDados(inputValue.value);
     renderItem(data);
+    inputValue.value = "";
 }
 
 async function pegarDados(value) {
