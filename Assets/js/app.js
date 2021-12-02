@@ -22,6 +22,7 @@ btnSearch.onclick = async (e) => {
         containerArea.style = "display: flex"
     } else {
         !inputArea.classList.contains("error") && inputArea.classList.add("error")
+        campos.map(el => el.setAttribute('class', 'isPending'))
     }
 }
 
