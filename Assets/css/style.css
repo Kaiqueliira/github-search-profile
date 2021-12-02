@@ -43,7 +43,7 @@ header .titleHeader {
     flex: 2;
 }
 
-#searchInputArea {
+.searchInputArea {
     display: flex;
     border-radius: 0.5rem;
     border: 1px solid #7079a3;
@@ -51,7 +51,7 @@ header .titleHeader {
     flex: 2;
 }
 
-#searchInputArea input {
+.searchInputArea input {
     padding: 0.5rem;
     font-size: 1rem;
     border: none;
@@ -60,11 +60,11 @@ header .titleHeader {
 
 }
 
-#searchInputArea input:focus {
+.searchInputArea input:focus {
     outline: none;
 }
 
-#searchInputArea button {
+.searchInputArea button {
     border: none;
     font-size: 1rem;
     padding: 0.5rem;
@@ -75,19 +75,24 @@ header .titleHeader {
     transition: filter 0.5s;
 }
 
-#searchInputArea button:hover {
+.searchInputArea button:hover {
     filter: opacity(0.8);
 }
 
-section .container {
+section #container {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    display: none;
+    display: flex;
+    margin: 1rem 0;
 
 }
 
-section .container div {
+.isPending {
+    filter: blur(0.3rem);
+}
+
+section #container div {
     flex: 2;
 }
 
@@ -97,7 +102,7 @@ aside {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
     background: #4554ac;
     border-radius: 0.5rem;
     margin: 0 1rem;
@@ -105,10 +110,17 @@ aside {
     color: hsl(212, 77%, 83%);
 }
 
+.error {
+    border: 1px solid red;
+}
+
 #avatarImg {
-    width: 50%;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     margin: 1rem 0;
+    background: hsl(212, 77%, 83%);
+
 }
 
 .informationsProfile {
@@ -117,5 +129,6 @@ aside {
 
 .informationsProfile p, .informationsProfile a {
     margin: 0.5rem 0;
+    color: inherit;
 
 }
