@@ -13,27 +13,24 @@
 </head>
 
 <body>
+    <header>
+        <div class="titleHeader">
+            <h1>Busca de Perfil GitHub</h1>
+        </div>
+        <div class="area-search">
+            <div id="searchInputArea" class="searchInputArea">
+                <input type="text" name="inputSearch" id="inputSearch" placeholder="Procurar Perfil GitHub">
+                <button id="btnSearch">Buscar</button>
+            </div>
+            <div class="error-validation-search" id="error-validation">
+                Preencha o campo de busca
+            </div>
+        </div>
+    </header>
     <section id="aplication">
-        <header>
-            <div class="titleHeader">
-                <h1>Busca de Perfil GitHub</h1>
-            </div>
-            <div class="area-search">
-                <div id="searchInputArea" class="searchInputArea">
-                    <input type="text" name="inputSearch" id="inputSearch" placeholder="Procurar Perfil GitHub">
-                    <button id="btnSearch">Buscar</button>
-                </div>
-                <div class="error-validation-search" id="error-validation">
-                    Preencha o campo de busca
-                </div>
-
-            </div>
-
-
-        </header>
-        <section id="container" class="isPending">
+        <section id="container" class="">
             <aside id="asside">
-                <img id="avatarImg" alt="Avatar"></img>
+                <img id="avatarImg"></img>
                 <div class="informationsProfile">
                     <div>
                         <span>Nome:</span> <span id="name"></span>
@@ -53,10 +50,31 @@
                     <a id="link_perfil"></a>
                 </div>
             </aside>
-            <div>
+            <main id="repositories">
+                <div id="container-card">
+                    <ul id="list-repositories">
+                        <!-- <li>
+                            <div id="card">
+
+                                <span>Nome:</span> <span id="name-repository"></span>
 
 
-            </div>
+                                <span>Criado em:</span> <span id="created_at"></span>
+
+
+                                <span>Atualizado em:</span> <span id="updated_at"></span>
+
+
+                                <span>Linguagem:</span> <span id="language"></span>
+
+
+                                <a id="link_repository" href="#">Acesso Ao Repositorio</a>
+
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </main>
         </section>
     </section>
 </body>
