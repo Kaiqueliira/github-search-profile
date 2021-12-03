@@ -12,8 +12,6 @@ let followingView = document.querySelector('#following')
 let follow = document.querySelector('#follow')
 let emailView = document.querySelector('#email')
 
-let campos = [nome, htmlUrl, linkPerfil, avatarImg, container, follow, followingView, emailView];
-
 inputValue.focus()
 
 btnSearch.addEventListener('click', search)
@@ -26,14 +24,19 @@ async function search(e) {
     e.preventDefault()
     const inputArea = document.querySelector('#searchInputArea')
     if (inputValue.value) {
-        inputArea.classList.contains("error") && inputArea.classList.remove("error")
         const data = await getData(inputValue.value);
+        inputArea.classList.contains("error") && inputArea.classList.remove("error")
+        document.querySelector('#error-validation').style.display = "none";
         renderItem(data);
         inputValue.value = "";
 
     } else {
-        !inputArea.classList.contains("error") && inputArea.classList.add("error")
-        campos.map(el => el.setAttribute('class', 'isPending'))
+
+        !inputArea.classList.contains("error") && inputArea.classList.add("error");
+        container.classList.add("isPending");
+        document.querySelector('#error-validation').style.display = "block";
+
+
     }
 }
 
@@ -44,9 +47,7 @@ async function getData(value) {
     return response
 }
 
-function removeAttribute(element, atrr, value) {
-    return element.map(el => el.removeAttribute(atrr, value))
-}
+
 
 function renderItem(data) {
     const { html_url, name, avatar_url, public_repos, following, followers, email } = data;
@@ -58,6 +59,6 @@ function renderItem(data) {
     emailView.innerHTML = email;
     linkPerfil.setAttribute("href", html_url)
     avatarImg.setAttribute("src", avatar_url)
-    removeAttribute(campos, "class", 'isPending')
+    container.classList.contains("isPending") && container.classList.remove("isPending")
 
 }
