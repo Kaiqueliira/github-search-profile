@@ -15,6 +15,8 @@ body {
     background: var(--background);
     width: 100vw;
     height: 100vh;
+    scrollbar-width: none;
+    scrollbar-color: #4554ac hsl(212, 77%, 83%);
 }
 
 #aplication {
@@ -107,7 +109,6 @@ header .titleHeader {
 aside {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     font-size: 1rem;
     border-radius: 0.5rem;
@@ -122,6 +123,13 @@ aside {
     border: 1px solid red;
 }
 
+#imagem-avatar-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
 #avatarImg {
     width: 10rem;
     height: 10rem;
@@ -131,6 +139,10 @@ aside {
 }
 
 .informationsProfile {}
+
+.informationsProfile div {
+    margin: 0.8rem 0;
+}
 
 .informationsProfile p,
 .informationsProfile a {
@@ -155,4 +167,30 @@ main {
     max-height: 150px;
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+#list-repositories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#list-repositories li {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: #4554ac;
+    color: hsl(212, 77%, 83%);
+    margin: 0 1rem 1rem 1rem;
+    width: 45%;
+}
+
+#list-repositories li div span {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+#list-repositories li div a {
+    color: hsl(212, 77%, 83%);
+    text-decoration: none;
+    font-weight: bold;
 }
