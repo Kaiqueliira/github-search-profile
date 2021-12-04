@@ -68,15 +68,24 @@ function renderItem(data) {
 
     const { html_url, name, avatar_url, public_repos, following, followers, email } = data;
 
-    nome.innerHTML = name;
+    nome.innerHTML = name || 'Nome Inexistente';
     htmlUrl.innerHTML = public_repos;
-    linkPerfil.innerHTML = "Acesso ao Perfil"
+    linkPerfil.innerHTML = "Ir para o Perfil"
     followingView.innerHTML = following;
     follow.innerHTML = followers;
-    emailView.innerHTML = email;
+    emailView.innerHTML = email || 'email Inexistente';
     linkPerfil.setAttribute("href", html_url)
+    linkPerfil.setAttribute("target", "_blank")
     avatarImg.setAttribute("src", avatar_url)
     container.classList.contains("isPending") && container.classList.remove("isPending")
+}
+
+function validateDate(date) {
+    const newDate = new Date(date);
+    const dateFormated = Intl.DateTimeFormat("pt-BR").format(newDate);
+
+    return dateFormated;
+
 }
 
 function renderRepository(repository) {
@@ -91,10 +100,11 @@ function renderRepository(repository) {
         let itemList = document.createElement('li')
 
         spanName.innerHTML = `Nome: ${name}`
-        createdAt.innerHTML = `Criado em: ${created_at}`
-        updatedAt.innerHTML = `Atualizado em: ${updated_at}`
+        createdAt.innerHTML = `Criado em: ${validateDate(created_at)}`
+        updatedAt.innerHTML = `Atualizado em: ${validateDate(updated_at)}`
         languageRepo.innerHTML = `Linguagem: ${language}`
         urlRepo.setAttribute('href', html_url)
+        urlRepo.setAttribute('target', "_blank")
         urlRepo.innerHTML = "Link do Repositório"
         divCard.appendChild(spanName)
         divCard.appendChild(createdAt)
