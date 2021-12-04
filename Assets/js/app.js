@@ -5,6 +5,7 @@ const container = document.querySelector("#container");
 const inputValue = document.querySelector('#inputSearch');
 let listRepository = document.querySelector('#list-repositories')
 let repositories = []
+let profile = []
 
 inputValue.focus()
 
@@ -25,18 +26,30 @@ async function search(event) {
     event.preventDefault()
     const inputArea = document.querySelector('#searchInputArea')
     if (inputValue.value) {
-        const data = await getData(inputValue.value);
-        await getRepository(inputValue.value).then(data => {
-            repositories = data
-        })
-        await removeAllChild("#list-repositories")
-        inputArea.classList.contains("error") && inputArea.classList.remove("error");
-        document.querySelector('#error-validation').style.display = "none";
-        inputValue.value = "";
-        renderItem(data);
-        renderRepository(repositories)
-    } else {
 
+        const data = await getData(inputValue.value);
+        if (data) {
+            await getRepository(inputValue.value).then(data => {
+                repositories = data
+            })
+            await removeAllChild("#list-repositories")
+            inputArea.classList.contains("error") && inputArea.classList.remove("error");
+            document.querySelector('#error-validation').style.display = "none";
+            inputValue.value = "";
+            renderItem(data);
+            renderRepository(repositories)
+            inputValue.focus()
+        } else {
+            const errorValidation = document.querySelector("#error-validation")
+
+            errorValidation.innerHTML = "O Perfil Não Existe! Por favor Digite o Nome Correto";
+            !inputArea.classList.contains("error") && inputArea.classList.add("error");
+            container.classList.add("isPending");
+            errorValidation.style.display = "block";
+        }
+
+
+    } else {
         !inputArea.classList.contains("error") && inputArea.classList.add("error");
         container.classList.add("isPending");
         document.querySelector('#error-validation').style.display = "block";
@@ -46,13 +59,25 @@ async function search(event) {
 
 async function getData(value) {
     const response = await fetch(api + value)
-        .then(data => data.json());
+        .then((data) => {
+            if (data.status == 200) {
+                return data.json()
+            } else {
+                return null
+            }
+        })
     return response
 }
-
+getData('a')
 async function getRepository(name) {
     const response = await fetch(api + name + "/repos")
-        .then(response => response.json())
+        .then((response) => {
+            if (response.status == 200) {
+                return response.json()
+            } else {
+                return false
+            }
+        })
     return response;
 }
 
