@@ -14,7 +14,6 @@
 body {
     background: var(--background);
     width: 100vw;
-    height: 100vh;
     scrollbar-width: none;
     scrollbar-color: #4554ac hsl(212, 77%, 83%);
 }
@@ -39,6 +38,8 @@ header {
 
 header .titleHeader {
     flex: 2;
+    display: flex;
+    align-items: center;
 }
 
 .area-search {
@@ -97,7 +98,7 @@ header .titleHeader {
     gap: 0.5rem;
     display: flex;
     margin: 1rem 0;
-    padding: 1rem 0;
+    padding: 1rem;
     transition: opacity 0.6s;
     height: 100%;
 }
@@ -112,11 +113,9 @@ aside {
     align-items: center;
     font-size: 1rem;
     border-radius: 0.5rem;
-    margin: 0 1rem;
     padding: 1rem;
     background: #4554ac;
     color: hsl(212, 77%, 83%);
-    height: 100%;
 }
 
 .error {
@@ -137,8 +136,6 @@ aside {
     margin: 1rem 0;
     background: hsl(212, 77%, 83%);
 }
-
-.informationsProfile {}
 
 .informationsProfile div {
     margin: 0.8rem 0;
@@ -161,14 +158,6 @@ main {
     flex-wrap: wrap;
 }
 
-#card {
-    background: #4554ac;
-    color: hsl(212, 77%, 83%);
-    max-height: 150px;
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
-
 #list-repositories {
     display: flex;
     flex-wrap: wrap;
@@ -176,12 +165,12 @@ main {
 }
 
 #list-repositories li {
-    padding: 1rem;
+    padding: 0 1rem 1rem;
     border-radius: 0.5rem;
     background: #4554ac;
     color: hsl(212, 77%, 83%);
-    margin: 0 1rem 1rem 1rem;
     width: 45%;
+    margin: 0 0.5rem 0.5rem;
 }
 
 #list-repositories li div span {
@@ -193,4 +182,63 @@ main {
     color: hsl(212, 77%, 83%);
     text-decoration: none;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    .area-search {
+        margin: 1rem 0;
+    }
+    #aplication {
+        height: 100%;
+        background: none;
+    }
+    #container {
+        flex-direction: column;
+        margin: 0;
+    }
+    #asside div {
+        width: 100%;
+    }
+    main {
+        overflow: visible;
+    }
+    #list-repositories {
+        width: 100%;
+    }
+    #list-repositories li {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .area-search {
+        margin: 1rem 0;
+    }
+    #list-repositories li {
+        width: 100%;
+        margin: 0 0 0.5rem;
+    }
+    header {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #list-repositories {
+        width: 100%;
+    }
+    #list-repositories li {
+        width: 45%;
+        margin: 0 0.5rem 0.5rem;
+    }
+    main {
+        width: 100%;
+    }
+    header {
+        flex-direction: row;
+    }
 }
