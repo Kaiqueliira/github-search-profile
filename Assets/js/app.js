@@ -80,12 +80,6 @@ function renderItem(data) {
 }
 
 function renderRepository(repository) {
-    /*    const nameRepo = document.querySelector('#name-repository')
-       const createdAt = document.querySelector('#created_at')
-       const updatedAt = document.querySelector('#updated_at')
-       const languageRepo = document.querySelector('#language')
-       const urlRepo = document.querySelector('#link_repository')
-       const listRepository = document.querySelector('#list-repositories') */
 
     repository.map(({ created_at, name, updated_at, language, html_url }) => {
         let divCard = document.createElement('div')
@@ -101,7 +95,7 @@ function renderRepository(repository) {
         updatedAt.innerHTML = `Atualizado em: ${updated_at}`
         languageRepo.innerHTML = `Linguagem: ${language}`
         urlRepo.setAttribute('href', html_url)
-        urlRepo.innerHTML = "Link Repositorio"
+        urlRepo.innerHTML = "Link do Repositório"
         divCard.appendChild(spanName)
         divCard.appendChild(createdAt)
         divCard.appendChild(updatedAt)
