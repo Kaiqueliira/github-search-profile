@@ -1,6 +1,6 @@
 :root {
-    --background: hsl(212, 74%, 77%);
-    --background-main: hsl(212, 77%, 83%);
+    --background: hsl(212, 77%, 83%);
+    --background-main: hsl(212, 74%, 77%);
     --color-font-header: #252c4e;
 }
 
@@ -21,7 +21,7 @@ body {
 #aplication {
     background: var(--background-main);
     border-radius: 1.2rem;
-    max-width: 1024px;
+    width: min(90vw, 1024px);
     height: 700px;
     margin: 0 auto;
 }
@@ -124,8 +124,8 @@ aside {
     font-size: 1rem;
     border-radius: 0.5rem;
     padding: 1rem;
-    background: #4554ac;
-    color: hsl(212, 77%, 83%);
+    background: hsl(212, 77%, 83%);
+    color: #4554ac;
 }
 
 .error {
@@ -157,7 +157,7 @@ aside {
     color: inherit;
 }
 
-main {
+#repositories {
     display: inline-block;
     overflow: auto;
 }
@@ -177,15 +177,16 @@ main {
 #list-repositories li {
     padding: 0 1rem 1rem;
     border-radius: 0.5rem;
-    background: #4554ac;
-    color: hsl(212, 77%, 83%);
+    background: hsl(212, 77%, 83%);
+    color: #4554ac;
     width: 45%;
     margin: 0 0.5rem 0.5rem;
     transition: filter 0.5s;
+    border: 1px solid;
 }
 
 #list-repositories li:hover {
-    filter: opacity(0.9)
+    filter: opacity(0.7)
 }
 
 #list-repositories li div span {
@@ -194,7 +195,7 @@ main {
 }
 
 #list-repositories li div a {
-    color: hsl(212, 77%, 83%);
+    color: #4554ac;
     text-decoration: none;
     font-weight: bold;
 }
@@ -208,7 +209,6 @@ main {
     }
     #aplication {
         height: 100%;
-        background: none;
     }
     #container {
         flex-direction: column;
@@ -217,7 +217,7 @@ main {
     #asside div {
         width: 100%;
     }
-    main {
+    #repositories {
         overflow: visible;
     }
     #list-repositories {
@@ -250,7 +250,7 @@ main {
         width: 45%;
         margin: 0 0.5rem 0.5rem;
     }
-    main {
+    #repositories {
         width: 100%;
     }
     header {
