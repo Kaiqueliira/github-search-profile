@@ -86,10 +86,10 @@ header .titleHeader {
     filter: opacity(0.8);
 }
 
-.error-validation-search {
+.error {
+    display: none;
     padding: 0.5rem;
     color: #ff0000;
-    display: none;
 }
 
 #container {
@@ -126,10 +126,6 @@ aside {
     padding: 1rem;
     background: hsl(212, 77%, 83%);
     color: #4554ac;
-}
-
-.error {
-    border: 1px solid red;
 }
 
 #imagem-avatar-content {

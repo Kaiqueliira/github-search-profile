@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/Assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>GitHub Search Profile</title>
 </head>
 
@@ -18,39 +18,19 @@
             <h1>Busca de Perfil GitHub</h1>
         </div>
         <div class="area-search">
-            <div id="searchInputArea" class="searchInputArea">
-                <input type="text" name="inputSearch" id="inputSearch" placeholder="Procurar Perfil GitHub">
-                <button id="btnSearch">Buscar</button>
+            <div id="searchInputArea">
+                <form action="" class="searchInputArea" onsubmit="App.search(event)">
+                    <input type="text" name="inputSearch" id="inputSearch" placeholder="Procurar Perfil GitHub">
+                    <button id="btnSearch">Buscar</button>
+                </form>
             </div>
-            <div class="error-validation-search" id="error-validation">
-                Preencha o campo de busca
-            </div>
+            <p id="error"></p>
         </div>
     </header>
     <main id="aplication">
         <div id="container" class="isPending">
-            <aside id="asside">
-                <div id="imagem-avatar-content">
-                    <img id="avatarImg"></img>
-                </div>
-                <div class="informationsProfile">
-                    <div>
-                        <span>Nome:</span> <span id="name"></span>
-                    </div>
-                    <div>
-                        <span>Quantidade de Repositorios:</span> <span id="html_url"></span>
-                    </div>
-                    <div>
-                        <span>Seguindo:</span> <span id="following"></span>
-                    </div>
-                    <div>
-                        <span>Seguidores:</span> <span id="follow"></span>
-                    </div>
-                    <div>
-                        <span>Email:</span> <span id="email"></span>
-                    </div>
-                    <a id="link_perfil"></a>
-                </div>
+            <aside id="aside">
+
             </aside>
             <section id="repositories">
                 <div id="container-card">
@@ -61,7 +41,8 @@
             </section>
         </div>
         </section>
+    </main>
 </body>
-<script src="/Assets/js/app.js"></script>
+<script src="./js/app.js"></script>
 
 </html>
