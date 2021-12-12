@@ -2,6 +2,7 @@ const Utils = {
     clearAllFields() {
         DOM.repositoryContainer.innerHTML = ""
         DOM.profileContainer.innerHTML = ""
+        App.container.classList.contains("isPending") && App.container.classList.add("isPending")
     },
     validateDate(date) {
         const newDate = new Date(date);
@@ -95,7 +96,7 @@ const DOM = {
     },
     addProfile(profile) {
         DOM.profileContainer.innerHTML = DOM.innerHTMLProfile(profile);
-        container.classList.contains("isPending") && container.classList.remove("isPending")
+        App.container.classList.contains("isPending") && App.container.classList.remove("isPending")
     },
     addRepositoryItem(item) {
         DOM.repositoryContainer.innerHTML += DOM.innerHTMLItemRepository(item)

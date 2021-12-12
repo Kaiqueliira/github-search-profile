@@ -160,25 +160,24 @@ aside {
 
 #container-card {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
 }
 
 #list-repositories {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     list-style: none;
+    padding: 0 1rem;
 }
 
 #list-repositories li {
-    padding: 0 1rem 1rem;
     border-radius: 0.5rem;
     background: hsl(212, 77%, 83%);
     color: #4554ac;
-    width: 45%;
     margin: 0 0.5rem 0.5rem;
     transition: filter 0.5s;
     border: 1px solid;
+    padding: 0 1rem 1rem 1rem;
 }
 
 #list-repositories li:hover {
@@ -217,7 +216,9 @@ aside {
         overflow: visible;
     }
     #list-repositories {
+        grid-template-columns: 1fr;
         width: 100%;
+        padding: 0;
     }
     #list-repositories li {
         width: 100%;
@@ -225,31 +226,11 @@ aside {
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 800px) {
     .area-search {
         margin: 1rem 0;
     }
-    #list-repositories li {
-        width: 100%;
-        margin: 0 0 0.5rem;
-    }
-    header {
-        flex-direction: column;
-    }
-}
-
-@media only screen and (min-width: 768px) {
     #list-repositories {
-        width: 100%;
-    }
-    #list-repositories li {
-        width: 45%;
-        margin: 0 0.5rem 0.5rem;
-    }
-    #repositories {
-        width: 100%;
-    }
-    header {
-        flex-direction: row;
+        grid-template-columns: 1fr;
     }
 }
